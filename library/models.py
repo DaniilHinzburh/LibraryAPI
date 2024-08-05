@@ -50,7 +50,7 @@ class Payment(models.Model):
         choices=Type.choices,
         default=Type.PAYMENT
     )
-    borrowing = models.ForeignKey(Borrowing, on_delete=models.SET_NULL)
+    borrowing = models.ForeignKey(Borrowing, null=True, on_delete=models.SET_NULL)
     session_url = models.URLField(validators=[URLValidator()])
     session_id = models.CharField(max_length=255)
     money_to_pay = models.DecimalField(max_digits=10, decimal_places=2)
